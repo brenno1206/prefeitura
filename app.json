@@ -24,6 +24,9 @@
     },
     "web": {
       "favicon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRUiPf7z4gPP8MS6XVZjjHBClN48QVmfqm4WIOJPxE1A&s=10"
-    }
+    },
+    "plugins": [
+      "expo-status-bar"
+    ]
   }
 }
