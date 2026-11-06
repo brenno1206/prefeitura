@@ -4,11 +4,11 @@
     "slug": "snack-08fdd461-bdcc-42f9-8d77-ffc5fee37518",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRUiPf7z4gPP8MS6XVZjjHBClN48QVmfqm4WIOJPxE1A&s=10",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRUiPf7z4gPP8MS6XVZjjHBClN48QVmfqm4WIOJPxE1A&s=10",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -23,7 +23,7 @@
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRUiPf7z4gPP8MS6XVZjjHBClN48QVmfqm4WIOJPxE1A&s=10"
     }
   }
 }

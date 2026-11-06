@@ -1,12 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TextInput, Image, TouchableOpacity } from 'react-native';
 import { Ionicons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
+import Fontisto from '@expo/vector-icons/Fontisto';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { SafeAreaProvider, SafeAreaView, initialWindowMetrics } from 'react-native-safe-area-context';
 
 export default function App() {
+
+  const [currentScreen, setCurrentScreen] = React.useState('events');
+
+  // Renderiza a Interface
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
     <SafeAreaView style={styles.container}>
+      
       {/* Conteúdo Principal com Rolagem */}
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         
@@ -50,7 +58,7 @@ export default function App() {
           </View>
         </View>
 
-        {/* Seção de Utilidades (Base para os alunos expandirem) */}
+        {/* Seção de Utilidades */}
         <View style={styles.sectionContainer}>
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Serviços e Utilidades</Text>
@@ -58,20 +66,31 @@ export default function App() {
           </View>
 
           <View style={styles.utilitiesGrid}>
-            {/* Exemplo base mantido: Coleta de Lixo */}
+            
+           {/* Enquetes */}
             <TouchableOpacity style={styles.utilityItem}>
               <View style={[styles.utilityIconBox, { backgroundColor: '#dcfce7' }]}>
-                <MaterialCommunityIcons name="trash-can-outline" size={22} color="#15803d" />
+                <AntDesign name="audit" size={22} color="#15803d" />
               </View>
-              <Text style={styles.utilityText}>Coleta de Lixo</Text>
+              <Text style={styles.utilityText}>Enquetes</Text>
             </TouchableOpacity>
 
-            {/* Espaço reservado/exemplo para os alunos implementarem novos serviços */}
-            <TouchableOpacity style={styles.utilityItem}>
-              <View style={[styles.utilityIconBox, { backgroundColor: '#e0f2fe' }]}>
-                <Ionicons name="add-circle-outline" size={22} color="#0369a1" />
+            {/* Eventos da Prefeitura */}
+            <TouchableOpacity 
+              style={styles.utilityItem}
+              onPress={() => setCurrentScreen('events')}
+            >
+              <View style={[styles.utilityIconBox, { backgroundColor: '#d6deff' }]}>
+                <MaterialIcons name="event" size={22} color="#2945c2" />
               </View>
-              <Text style={styles.utilityText}>Novo Serviço</Text>
+              <Text style={styles.utilityText}>Eventos</Text>
+            </TouchableOpacity>
+
+             <TouchableOpacity style={styles.utilityItem}>
+              <View style={[styles.utilityIconBox, { backgroundColor: '#e0f2fe' }]}>
+                <Fontisto name="map" size={22} color="#0369a1"/>
+              </View>
+              <Text style={styles.utilityText}>Mapa</Text>
             </TouchableOpacity>
           </View>
         </View>
