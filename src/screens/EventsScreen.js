@@ -1,6 +1,6 @@
 import React from 'react';
-import ScreenContainer from '../components/ScreenContainer';
-import ScreenHeader from '../components/ScreenHeader';
+import ScreenContainer from '../components/layout/ScreenContainer';
+import ScreenHeader from '../components/layout/ScreenHeader';
 
 export default function EventsScreen({ navigation }) {
   return (

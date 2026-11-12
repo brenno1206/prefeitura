@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Icon from './Icon';
-import { colors, fontSize, fontWeight, radius, spacing } from '../theme';
+import { colors, fontSize, fontWeight, radius, spacing } from '../../theme';
 
 // Linha de lista com ícone, título, descrição opcional e seta (usada em Serviços e Perfil).
 export default function ListItem({

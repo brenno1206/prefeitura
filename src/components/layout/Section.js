@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { spacing } from '../theme';
+import { spacing } from '../../theme';
 
 // Bloco com o recuo e espaçamento padrão entre seções.
 export default function Section({ children, style }) {

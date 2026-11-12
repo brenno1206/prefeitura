@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { colors, fontSize, fontWeight, spacing } from '../theme';
+import { colors, fontSize, fontWeight, spacing } from '../../theme';
 
 export default function SectionHeader({ title, actionLabel, onActionPress }) {
   return (

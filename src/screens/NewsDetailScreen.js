@@ -1,11 +1,10 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import ScreenContainer from '../components/ScreenContainer';
-import ScreenHeader from '../components/ScreenHeader';
-import Section from '../components/Section';
-import Tag from '../components/Tag';
-import EmptyState from '../components/EmptyState';
+import ScreenContainer from '../components/layout/ScreenContainer';
+import ScreenHeader from '../components/layout/ScreenHeader';
+import Section from '../components/layout/Section';
+import Tag from '../components/news/Tag';
 import { news } from '../data/news';
 import { colors, fontSize, fontWeight, radius, spacing } from '../theme';
 
@@ -16,7 +15,10 @@ export default function NewsDetailScreen({ navigation, route }) {
   if (!item) {
     return (
       <ScreenContainer header={header}>
-        <EmptyState message="Notícia não encontrada." />
+        <View style={styles.empty}>
+          <Ionicons name="search-outline" size={28} color={colors.textPlaceholder} />
+          <Text style={styles.emptyText}>Notícia não encontrada.</Text>
+        </View>
       </ScreenContainer>
     );
   }
@@ -71,5 +73,15 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     color: colors.textSecondary,
     marginTop: spacing.sm,
+  },
+  empty: {
+    alignItems: 'center',
+    paddingVertical: spacing.xxl,
+  },
+  emptyText: {
+    fontSize: fontSize.sm,
+    color: colors.textPlaceholder,
+    marginTop: spacing.sm,
+    textAlign: 'center',
   },
 });

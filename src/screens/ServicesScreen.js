@@ -1,9 +1,9 @@
 import React from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
-import ScreenContainer from '../components/ScreenContainer';
-import ScreenHeader from '../components/ScreenHeader';
-import Section from '../components/Section';
-import ListItem from '../components/ListItem';
+import ScreenContainer from '../components/layout/ScreenContainer';
+import ScreenHeader from '../components/layout/ScreenHeader';
+import Section from '../components/layout/Section';
+import ListItem from '../components/ui/ListItem';
 import { services } from '../data/services';
 import { spacing } from '../theme';
 

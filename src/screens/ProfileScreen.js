@@ -1,11 +1,11 @@
 import React from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import ScreenContainer from '../components/ScreenContainer';
-import ScreenHeader from '../components/ScreenHeader';
-import Section from '../components/Section';
-import SectionHeader from '../components/SectionHeader';
-import ListItem from '../components/ListItem';
+import ScreenContainer from '../components/layout/ScreenContainer';
+import ScreenHeader from '../components/layout/ScreenHeader';
+import Section from '../components/layout/Section';
+import SectionHeader from '../components/layout/SectionHeader';
+import ListItem from '../components/ui/ListItem';
 import { user } from '../data/user';
 import { colors, fontSize, fontWeight, radius, spacing } from '../theme';
 

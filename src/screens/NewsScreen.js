@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import ScreenContainer from '../components/ScreenContainer';
-import ScreenHeader from '../components/ScreenHeader';
-import Section from '../components/Section';
-import NewsCard from '../components/NewsCard';
+import ScreenContainer from '../components/layout/ScreenContainer';
+import ScreenHeader from '../components/layout/ScreenHeader';
+import Section from '../components/layout/Section';
+import NewsCard from '../components/news/NewsCard';
 import { news } from '../data/news';
 import { ROUTES } from '../navigation/routes';
 import { spacing } from '../theme';

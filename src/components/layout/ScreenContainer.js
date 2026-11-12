@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, spacing } from '../theme';
+import { colors, spacing } from '../../theme';
 
 // Base de todas as telas: área segura superior + rolagem opcional.
 export default function ScreenContainer({ children, header, scroll = true, contentStyle }) {

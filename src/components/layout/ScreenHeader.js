@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, fontSize, fontWeight, radius, shadows, spacing } from '../theme';
+import { colors, fontSize, fontWeight, radius, shadows, spacing } from '../../theme';
 
 // Header das telas internas, no mesmo estilo azul da Home. `onBack` exibe o botão de voltar.
 export default function ScreenHeader({ title, subtitle, onBack }) {

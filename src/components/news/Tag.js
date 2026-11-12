@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { getCategoryColors } from '../utils/categories';
-import { fontSize, fontWeight, radius, spacing } from '../theme';
+import { getCategoryColors } from '../../utils/categories';
+import { fontSize, fontWeight, radius, spacing } from '../../theme';
 
 export default function Tag({ label }) {
   const { background, text } = getCategoryColors(label);
