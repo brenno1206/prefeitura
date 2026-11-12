@@ -8,6 +8,7 @@ import { news } from '../data/news';
 import { ROUTES } from '../navigation/routes';
 import { spacing } from '../theme';
 
+// Aba Notícias: lista completa de notícias, abrindo o detalhe ao tocar em uma.
 export default function NewsScreen({ navigation }) {
   return (
     <ScreenContainer header={<ScreenHeader title="Notícias" subtitle="Comunicados da prefeitura" />}>

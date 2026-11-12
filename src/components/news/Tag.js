@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { getCategoryColors } from '../../utils/categories';
 import { fontSize, fontWeight, radius, spacing } from '../../theme';
 
+// Etiqueta colorida de categoria da notícia (usada no NewsCard e no detalhe da notícia).
 export default function Tag({ label }) {
   const { background, text } = getCategoryColors(label);
   return (

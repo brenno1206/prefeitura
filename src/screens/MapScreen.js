@@ -2,6 +2,7 @@ import React from 'react';
 import ScreenContainer from '../components/layout/ScreenContainer';
 import ScreenHeader from '../components/layout/ScreenHeader';
 
+// Tela de Mapa (placeholder), aberta pelo serviço "Mapa".
 export default function MapScreen({ navigation }) {
   return (
     <ScreenContainer

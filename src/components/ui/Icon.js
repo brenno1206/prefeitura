@@ -17,7 +17,7 @@ const FAMILIES = {
   MaterialIcons,
 };
 
-// Permite que os dados mockados descrevam ícones como { family, name } sem importar componentes.
+// Ícone genérico que recebe { family, name } dos dados mockados (usado na Home e no ListItem).
 export default function Icon({ family = 'Ionicons', name, size = 22, color, style }) {
   const IconComponent = FAMILIES[family] ?? Ionicons;
   return <IconComponent name={name} size={size} color={color} style={style} />;

@@ -8,6 +8,7 @@ import Tag from '../components/news/Tag';
 import { news } from '../data/news';
 import { colors, fontSize, fontWeight, radius, spacing } from '../theme';
 
+// Detalhe de uma notícia, aberta a partir da Home ou da aba Notícias (recebe newsId pela rota).
 export default function NewsDetailScreen({ navigation, route }) {
   const item = news.find((entry) => entry.id === route.params?.newsId);
   const header = <ScreenHeader title="Notícia" onBack={navigation.goBack} />;

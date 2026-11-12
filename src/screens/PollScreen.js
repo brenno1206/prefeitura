@@ -2,6 +2,7 @@ import React from 'react';
 import ScreenContainer from '../components/layout/ScreenContainer';
 import ScreenHeader from '../components/layout/ScreenHeader';
 
+// Tela de Enquetes (placeholder), aberta pelo serviço "Enquetes".
 export default function PollScreen({ navigation }) {
   return (
     <ScreenContainer

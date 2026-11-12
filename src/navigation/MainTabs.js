@@ -19,6 +19,7 @@ const TAB_ICONS = {
   [ROUTES.PROFILE]: 'person',
 };
 
+// Barra de abas inferior (Início, Serviços, Notícias, Perfil), usada como base do RootNavigator.
 export default function MainTabs() {
   return (
     <Tab.Navigator

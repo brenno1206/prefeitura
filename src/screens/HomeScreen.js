@@ -13,6 +13,7 @@ import { matchesQuery } from '../utils/text';
 import { ROUTES } from '../navigation/routes';
 import { colors, fontSize, fontWeight, radius, shadows, spacing } from '../theme';
 
+// Tela inicial (aba Início): busca, aviso público, serviços em destaque e últimas notícias.
 export default function HomeScreen({ navigation }) {
   const [query, setQuery] = useState('');
 

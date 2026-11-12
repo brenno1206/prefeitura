@@ -7,6 +7,7 @@ import ListItem from '../components/ui/ListItem';
 import { services } from '../data/services';
 import { spacing } from '../theme';
 
+// Aba Serviços: lista todos os serviços e navega para a tela de cada um quando disponível.
 export default function ServicesScreen({ navigation }) {
   function handlePress(service) {
     if (service.route) {

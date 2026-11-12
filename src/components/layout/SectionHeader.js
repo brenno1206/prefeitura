@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, fontSize, fontWeight, spacing } from '../../theme';
 
+// Título de seção com link de ação opcional à direita (usado na Home e no Perfil).
 export default function SectionHeader({ title, actionLabel, onActionPress }) {
   return (
     <View style={styles.container}>

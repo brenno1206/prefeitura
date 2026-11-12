@@ -16,6 +16,7 @@ const MENU_ITEMS = [
   { id: 'help', title: 'Ajuda', icon: { family: 'Ionicons', name: 'help-circle-outline' } },
 ];
 
+// Aba Perfil: dados do cidadão e menu de opções da conta.
 export default function ProfileScreen() {
   return (
     <ScreenContainer header={<ScreenHeader title="Perfil" />}>

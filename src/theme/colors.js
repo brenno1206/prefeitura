@@ -1,4 +1,4 @@
-// Paleta extraída do layout original do App.js.
+// Paleta de cores do app.
 export const colors = {
   primary: '#1d4ed8',
   primaryLight: '#dbeafe',

@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import Tag from './Tag';
 import { colors, fontSize, fontWeight, radius, spacing } from '../../theme';
 
+// Card de notícia com imagem, categoria, título e tempo (usado na Home e na lista de Notícias).
 export default function NewsCard({ title, category, timeAgo, image, onPress }) {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} accessibilityRole="button">
