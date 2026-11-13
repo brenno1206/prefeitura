@@ -41,8 +41,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
     - Adicionar mapa que funciona para web e android/ios
     - Ajustar as coordenadas do mapa para o município real (vila velha?) e usar a localização do usuário (bairro).
     - Adicionar opção de 'procurar' estabelecimento mais próximo (ex: farmácia, mercado, academia, etc).
- 
+
 - Eventos
     - ver sobre src/data/events.js - se precisa terminar ou apagar
-
-https://prod.liveshare.vsengsaas.visualstudio.com/join?3723EBAAF5C2EBF5171FCD8392FFB849B385
+    - parei em EventCard.js (ChatGPT)
