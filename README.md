@@ -39,7 +39,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 - Mapa
     - Adicionar mapa que funciona para web e android/ios
-    - Ajustar as coordenadas do mapa para o município real (vila velha?) e usar a localização do usuário (bairro).
+    - Ajustar as coordenadas do mapa para o município real (vila velha) e usar a localização do usuário.
     - Adicionar opção de 'procurar' estabelecimento mais próximo (ex: farmácia, mercado, academia, etc).
 
 - Eventos
