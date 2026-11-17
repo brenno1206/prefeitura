@@ -38,9 +38,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 - Implementar as telas de Enquetes, Eventos e Mapa.
 
 - Mapa
-    - Adicionar mapa que funciona para web e android/ios
-    - Ajustar as coordenadas do mapa para o município real (vila velha) e usar a localização do usuário.
-    - Adicionar opção de 'procurar' estabelecimento mais próximo (ex: farmácia, mercado, academia, etc).
+    - tentar outra API pra procurar estabelecimentos
 
 - Eventos
     - ver sobre src/data/events.js - se precisa terminar ou apagar
