@@ -4,40 +4,35 @@ import { Ionicons } from '@expo/vector-icons';
 import ScreenContainer from '../components/layout/ScreenContainer';
 import ScreenHeader from '../components/layout/ScreenHeader';
 import Section from '../components/layout/Section';
-import Tag from '../components/news/Tag';
-import { news } from '../data/news';
+import StateMessage from '../components/ui/StateMessage';
+import { useNoticia } from '../hooks/useNewsApi';
+import { formatDate } from '../utils/date';
+import { htmlToText } from '../utils/text';
 import { colors, fontSize, fontWeight, radius, spacing } from '../theme';
 
-// Detalhe de uma notícia, aberta a partir da Home ou da aba Notícias (recebe newsId pela rota).
+// Detalhe de uma notícia, buscada na API pelo slug recebido na rota.
 export default function NewsDetailScreen({ navigation, route }) {
-  const item = news.find((entry) => entry.id === route.params?.newsId);
-  const header = <ScreenHeader title="Notícia" onBack={navigation.goBack} />;
-
-  if (!item) {
-    return (
-      <ScreenContainer header={header}>
-        <View style={styles.empty}>
-          <Ionicons name="search-outline" size={28} color={colors.textPlaceholder} />
-          <Text style={styles.emptyText}>Notícia não encontrada.</Text>
-        </View>
-      </ScreenContainer>
-    );
-  }
+  const slug = route.params?.slug;
+  const { data: item, loading, error, reload } = useNoticia(slug);
 
   return (
-    <ScreenContainer header={header}>
+    <ScreenContainer header={<ScreenHeader title="Notícia" onBack={navigation.goBack} />}>
       <Section>
-        <View style={styles.card}>
-          <Image source={{ uri: item.imageLarge }} style={styles.image} />
-          <View style={styles.content}>
-            <Tag label={item.category} />
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.date}>
-              <Ionicons name="time-outline" size={12} color={colors.textPlaceholder} /> {item.timeAgo}
-            </Text>
-            <Text style={styles.body}>{item.body}</Text>
+        <StateMessage loading={loading} error={error} onRetry={reload} />
+        {item && !loading && !error && (
+          <View style={styles.card}>
+            {item.imagem_capa_url ? <Image source={{ uri: item.imagem_capa_url }} style={styles.image} /> : null}
+            <View style={styles.content}>
+              <Text style={styles.title}>{item.titulo}</Text>
+              <Text style={styles.date}>
+                <Ionicons name="time-outline" size={12} color={colors.textPlaceholder} />{' '}
+                {formatDate(item.publicado_em)}
+              </Text>
+              {item.resumo ? <Text style={styles.summary}>{item.resumo}</Text> : null}
+              <Text style={styles.body}>{htmlToText(item.conteudo)}</Text>
+            </View>
           </View>
-        </View>
+        )}
       </Section>
     </ScreenContainer>
   );
@@ -69,20 +64,15 @@ const styles = StyleSheet.create({
     fontSize: fontSize.xxs,
     color: colors.textPlaceholder,
   },
+  summary: {
+    fontSize: fontSize.md,
+    fontWeight: fontWeight.semibold,
+    color: colors.textSecondary,
+    marginTop: spacing.sm,
+  },
   body: {
     fontSize: fontSize.md,
     lineHeight: 20,
     color: colors.textSecondary,
-    marginTop: spacing.sm,
-  },
-  empty: {
-    alignItems: 'center',
-    paddingVertical: spacing.xxl,
-  },
-  emptyText: {
-    fontSize: fontSize.sm,
-    color: colors.textPlaceholder,
-    marginTop: spacing.sm,
-    textAlign: 'center',
   },
 });

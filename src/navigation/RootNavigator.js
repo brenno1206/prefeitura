@@ -5,6 +5,8 @@ import NewsDetailScreen from '../screens/NewsDetailScreen';
 import EventsScreen from '../screens/EventsScreen';
 import PollScreen from '../screens/PollScreen';
 import MapScreen from '../screens/MapScreen';
+import NotificationsScreen from '../screens/NotificationsScreen';
+import NotificationDetailScreen from '../screens/NotificationDetailScreen';
 import { ROUTES } from './routes';
 import { colors } from '../theme';
 
@@ -25,6 +27,8 @@ export default function RootNavigator() {
       <Stack.Screen name={ROUTES.EVENTS} component={EventsScreen} />
       <Stack.Screen name={ROUTES.POLL} component={PollScreen} />
       <Stack.Screen name={ROUTES.MAP} component={MapScreen} />
+      <Stack.Screen name={ROUTES.NOTIFICATIONS} component={NotificationsScreen} />
+      <Stack.Screen name={ROUTES.NOTIFICATION_DETAIL} component={NotificationDetailScreen} />
     </Stack.Navigator>
   );
 }

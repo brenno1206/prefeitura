@@ -1,11 +1,12 @@
 import React from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import ScreenContainer from '../components/layout/ScreenContainer';
 import ScreenHeader from '../components/layout/ScreenHeader';
 import Section from '../components/layout/Section';
 import ListItem from '../components/ui/ListItem';
 import { services } from '../data/services';
 import { spacing } from '../theme';
+import { showAlert } from '../utils/alert';
 
 // Aba Serviços: lista todos os serviços e navega para a tela de cada um quando disponível.
 export default function ServicesScreen({ navigation }) {
@@ -14,7 +15,7 @@ export default function ServicesScreen({ navigation }) {
       navigation.navigate(service.route);
       return;
     }
-    Alert.alert(service.label, 'Este serviço estará disponível em breve.');
+    showAlert(service.label, 'Este serviço estará disponível em breve.');
   }
 
   return (

@@ -11,4 +11,6 @@ export const ROUTES = {
   EVENTS: 'Events',
   POLL: 'Poll',
   MAP: 'Map',
+  NOTIFICATIONS: 'Notifications',
+  NOTIFICATION_DETAIL: 'NotificationDetail',
 };

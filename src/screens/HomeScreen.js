@@ -6,22 +6,36 @@ import Section from '../components/layout/Section';
 import SectionHeader from '../components/layout/SectionHeader';
 import NewsCard from '../components/news/NewsCard';
 import Icon from '../components/ui/Icon';
-import { publicAlert } from '../data/alerts';
+import StateMessage from '../components/ui/StateMessage';
+import { getNotificationType } from '../components/notifications/NotificationCard';
 import { featuredServices } from '../data/services';
-import { news, HOME_NEWS_LIMIT } from '../data/news';
+import { useNoticias, useNotificacoes } from '../hooks/useNewsApi';
+import { timeAgo } from '../utils/date';
 import { matchesQuery } from '../utils/text';
 import { ROUTES } from '../navigation/routes';
 import { colors, fontSize, fontWeight, radius, shadows, spacing } from '../theme';
 
-// Tela inicial (aba Início): busca, aviso público, serviços em destaque e últimas notícias.
+// Quantidade de notícias exibidas na Home (sem busca).
+const HOME_NEWS_LIMIT = 3;
+
+// Tela inicial (aba Início): busca, notificação em destaque, serviços e últimas notícias.
 export default function HomeScreen({ navigation }) {
   const [query, setQuery] = useState('');
+  const newsRequest = useNoticias();
+  const notificationsRequest = useNotificacoes();
 
-  // Sem busca, mostra o destaque padrão; com busca, procura em todas as notícias.
+  const news = newsRequest.data ?? [];
+  const notifications = notificationsRequest.data ?? [];
+
+  // Destaque: a emergência mais recente; se não houver, a notificação mais recente.
+  const highlight = notifications.find((n) => n.tipo === 'emergencia') ?? notifications[0];
+  const highlightType = highlight ? getNotificationType(highlight.tipo) : null;
+
+  // Sem busca, mostra as mais recentes; com busca, procura em todas as notícias.
   const visibleNews = useMemo(() => {
     if (!query) return news.slice(0, HOME_NEWS_LIMIT);
-    return news.filter((item) => matchesQuery(query, item.title, item.category));
-  }, [query]);
+    return news.filter((item) => matchesQuery(query, item.titulo, item.resumo));
+  }, [query, news]);
 
   const visibleServices = useMemo(
     () => featuredServices.filter((service) => matchesQuery(query, service.label)),
@@ -41,9 +55,13 @@ export default function HomeScreen({ navigation }) {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.notificationButton} accessibilityLabel="Notificações">
+        <TouchableOpacity
+          style={styles.notificationButton}
+          accessibilityLabel="Notificações"
+          onPress={() => navigation.navigate(ROUTES.NOTIFICATIONS)}
+        >
           <Ionicons name="notifications-outline" size={20} color={colors.white} />
-          <View style={styles.badge} />
+          {notifications.length > 0 && <View style={styles.badge} />}
         </TouchableOpacity>
       </View>
 
@@ -63,15 +81,23 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <ScreenContainer header={header}>
-      <Section>
-        <View style={styles.alert}>
-          <Ionicons name="warning" size={22} color={colors.warning} style={styles.alertIcon} />
-          <View style={styles.alertContent}>
-            <Text style={styles.alertTitle}>{publicAlert.title}</Text>
-            <Text style={styles.alertMessage}>{publicAlert.message}</Text>
-          </View>
-        </View>
-      </Section>
+      {highlight && (
+        <Section>
+          <TouchableOpacity
+            style={[styles.alert, { backgroundColor: highlightType.background, borderLeftColor: highlightType.color }]}
+            onPress={() => navigation.navigate(ROUTES.NOTIFICATION_DETAIL, { id: highlight.id })}
+            accessibilityRole="button"
+          >
+            <Ionicons name={highlightType.icon} size={22} color={highlightType.color} style={styles.alertIcon} />
+            <View style={styles.alertContent}>
+              <Text style={[styles.alertTitle, { color: highlightType.color }]}>{highlight.titulo}</Text>
+              <Text style={styles.alertMessage} numberOfLines={2}>
+                {highlight.mensagem}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </Section>
+      )}
 
       {visibleServices.length > 0 && (
         <Section>
@@ -104,18 +130,18 @@ export default function HomeScreen({ navigation }) {
           actionLabel="Ver mais"
           onActionPress={() => navigation.navigate(ROUTES.NEWS)}
         />
+        <StateMessage loading={newsRequest.loading} error={newsRequest.error} onRetry={newsRequest.reload} />
         <View style={styles.list}>
           {visibleNews.map((item) => (
             <NewsCard
               key={item.id}
-              title={item.title}
-              category={item.category}
-              timeAgo={item.timeAgo}
-              image={item.image}
-              onPress={() => navigation.navigate(ROUTES.NEWS_DETAIL, { newsId: item.id })}
+              title={item.titulo}
+              timeAgo={timeAgo(item.publicado_em)}
+              image={item.imagem_capa_url}
+              onPress={() => navigation.navigate(ROUTES.NEWS_DETAIL, { slug: item.slug })}
             />
           ))}
-          {visibleNews.length === 0 && (
+          {!newsRequest.loading && !newsRequest.error && query !== '' && visibleNews.length === 0 && (
             <View style={styles.empty}>
               <Ionicons name="search-outline" size={28} color={colors.textPlaceholder} />
               <Text style={styles.emptyText}>Nenhum resultado para sua busca.</Text>

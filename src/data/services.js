@@ -29,18 +29,10 @@ const SERVICES = {
     background: '#e0f2fe',
     route: ROUTES.MAP,
   },
-  ombudsman: {
-    id: 'ombudsman',
-    label: 'Ouvidoria',
-    description: 'Sugestões, reclamações e elogios',
-    icon: { family: 'Ionicons', name: 'chatbubbles-outline' },
-    color: '#7c3aed',
-    background: '#ede9fe',
-  },
 };
 
 // Atalhos da grade "Serviços e Utilidades" na Home.
 export const featuredServices = [SERVICES.polls, SERVICES.events, SERVICES.map];
 
 // Lista exibida na aba Serviços.
-export const services = [SERVICES.polls, SERVICES.events, SERVICES.map, SERVICES.ombudsman];
+export const services = [SERVICES.polls, SERVICES.events, SERVICES.map];
