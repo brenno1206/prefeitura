@@ -34,12 +34,9 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 ## Próximos passos
 
-- Integrar com a API da prefeitura (substituir `src/data/` por API do professor).
 - Implementar as telas de Enquetes, Eventos e Mapa.
-
-- Mapa
-    - tentar outra API pra procurar estabelecimentos
 
 - Eventos
     - ver sobre src/data/events.js - se precisa terminar ou apagar
     - parei em EventCard.js (ChatGPT)
+- Enquetes
