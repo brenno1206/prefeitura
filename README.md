@@ -34,8 +34,6 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 ## Próximos passos
 
-- Implementar as telas de Enquetes, Eventos e Mapa.
-
 - Eventos
     - ver sobre src/data/events.js - se precisa terminar ou apagar
     - parei em EventCard.js (ChatGPT)
