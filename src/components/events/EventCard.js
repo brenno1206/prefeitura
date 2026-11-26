@@ -43,8 +43,28 @@ export default function EventCard({ event, onPress }) {
                 </View>
             </View>
 
-            <Ionicons />
-
+            <Ionicons
+                name="seta-dir"
+                size={19}
+                color={colors.textPlaceholder}
+            />
         </TouchableOpacity>
     )
 }
+
+const styles = StyleSheet.create({
+
+    card: {
+        backgroundColor: colors.surface,
+        borderRadius: radius.xl,
+        borderWidth: 1,
+        borderColor: colors.border,
+        padding: spacing.lg,
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: spacing.md
+    },
+    iconBox: {
+        
+    }
+})
