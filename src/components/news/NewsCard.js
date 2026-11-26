@@ -1,16 +1,14 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import Tag from './Tag';
 import { colors, fontSize, fontWeight, radius, spacing } from '../../theme';
 
-// Card de notícia com imagem, categoria (opcional), título e tempo (usado na Home e na lista de Notícias).
-export default function NewsCard({ title, category, timeAgo, image, onPress }) {
+// Card de notícia com imagem, título e tempo (usado na Home e na lista de Notícias).
+export default function NewsCard({ title, timeAgo, image, onPress }) {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} accessibilityRole="button">
       <Image source={{ uri: image }} style={styles.image} />
       <View style={styles.info}>
-        {category ? <Tag label={category} /> : null}
         <Text style={styles.title} numberOfLines={2}>
           {title}
         </Text>
