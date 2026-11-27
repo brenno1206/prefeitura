@@ -35,6 +35,4 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 ## Próximos passos
 
 - Eventos
-    - ver sobre src/data/events.js - se precisa terminar ou apagar
-    - parei em EventCard.js (ChatGPT)
-- Enquetes
+    - add categorias de Esporte Saúde, Meio Ambiente, Educação, ... 
