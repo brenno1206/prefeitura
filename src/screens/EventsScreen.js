@@ -216,11 +216,71 @@ export default function EventsScreen({ navigation }) {
                   <Text style={styles.category}>CULTURA</Text>
 
                   <TouchableOpacity
-                  
+                    onPress={() => setSelectedEvent(null)}
+                    accessibilityRole='button'
+                    accessibilityLabel='Fechar Detalhes'
                   >
-
+                    <Ionicons
+                      name="close-circle"
+                      size={27}
+                      color={colors.textMuted}
+                    />
                   </TouchableOpacity>
                 </View>
+
+                <Text style={styles.modalTitle}>
+                  {selectedEvent.title}
+                </Text>
+
+                <Text style={styles.modalDescription}>
+                  {selectedEvent.description}
+                </Text>
+
+                <View style={styles.detailList}>
+                  <Text style={styles.occurrencesTitle}>
+                    Datas e Locais
+                  </Text>
+                  
+                  {selectedEvent.occurrences.map((occurrence) => (
+
+                    <DetailRow
+                      key={occurrence.id}
+                      icon="calendar-outline"
+                      label={occurrence.place}
+                      value={occurrence.dateDescription || 'Data não informada'}
+                    />
+                  ))}
+
+                  <DetailRow
+                    icon="business-outline"
+                    label="Responsável pelo Cadastro"
+                    value={selectedEvent.organizer}
+                  />
+                </View>
+
+                <TouchableOpacity
+                  style={styles.sourceButton}
+                  onPress={() => openSource(selectedEvent.sourceUrl)}
+                  accessibilityRole='link'
+                >
+                  <Ionicons
+                    name="open-outline"
+                    size={17}
+                    color={colors.primary}
+                  />
+
+                  <Text style={styles.sourceButtonText}>
+                    Ver publicação no Mapa Cultural - ES
+                  </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.closeButton}
+                  onPress={() => setSelectedEvent(null)}
+                  accessibilityRole='button'
+                >
+                  <Text style={styles.closeButtonText}>Fechar</Text>
+                </TouchableOpacity>
               </ScrollView>
             )}
 
@@ -231,3 +291,215 @@ export default function EventsScreen({ navigation }) {
     </ScreenContainer>
   );
 }
+
+const styles = StyleSheet.create({
+
+  intro: {
+    backgroundColor: colors.primaryLight,
+    borderRadius: radius.lg,
+    padding: spacing.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+    marginBottom: spacing.xxl
+  },
+
+  introIcon: {
+    alignSelf: 'flex-start'
+  },
+
+  introText: {
+    flex: 1,
+    fontSize: fontSize.sm,
+    color: colors.textSecondary,
+    lineHeight: 19
+  },
+
+  listHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: spacing.md
+  },
+
+  sectionTitle: {
+    fontSize: fontSize.lg,
+    color: colors.textPrimary,
+    fontWeight: fontWeight.bold
+  },
+
+  count: {
+    fontSize: fontSize.xs,
+    color: colors.textMuted,
+    marginTop: spacing.xs
+  },
+
+  refreshButton: {
+    width: 38,
+    height: 38,
+    borderRadius: radius.round,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  eventList: {
+    gap: spacing.md
+  },
+
+  stateContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.surface,
+    borderRadius: radius.xl,
+    padding: spacing.xxxl,
+    gap: spacing.md
+  },
+
+  stateTitle: {
+    color: colors.textPrimary,
+    fontSize: fontSize.md,
+    fontWeight: fontWeight.bold,
+    textAlign: 'center',
+  },
+
+  stateText: {
+    color: colors.textMuted,
+    fontSize: fontSize.sm,
+    textAlign: 'center',
+    lineHeight: 20,
+  },
+
+  retryButton: {
+    backgroundColor: colors.primary,
+    borderRadius: radius.lg,
+    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.md,
+    marginTop: spacing.sm,
+  },
+
+  retryText: {
+    color: colors.white,
+    fontSize: fontSize.sm,
+    fontWeight: fontWeight.bold
+  },
+
+  source: {
+    color: colors.textPlaceholder,
+    fontSize: fontSize.xxs,
+    textAlign: 'center',
+    marginTop: spacing.xl
+  },
+
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: spacing.xl
+  },
+
+  modalCard: {
+    width: '100%',
+    maxWidth: 480,
+    maxHeight: '85%',
+    backgroundColor: colors.surface,
+    borderRadius: radius.xl,
+    padding: spacing.xl
+  },
+
+  modalContent: {
+    paddingBottom: spacing.sm
+  },
+
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: spacing.md
+  },
+
+  modalTitle: {
+    color: colors.textPrimary,
+    fontSize: fontSize.xxl,
+    fontWeight: fontWeight.bold,
+    marginBottom: spacing.md
+  },
+
+  modalDescription: {
+    color: colors.textMuted,
+    fontSize: fontSize.sm,
+    lineHeight: 21
+  },
+
+  detailList: {
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+    marginTop: spacing.xl,
+    paddingTop: spacing.lg,
+    gap: spacing.md
+  },
+
+  occurrencesTitle: {
+    color: colors.textPrimary,
+    fontSize: fontSize.md,
+    fontWeight: fontWeight.bold
+  },
+
+  detailRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: spacing.md
+  },
+
+  detailInfo: {
+    flex: 1,
+    gap: spacing.xxs
+  },
+
+  detailLabel: {
+    color: colors.textMuted,
+    fontSize: fontSize.xs,
+    fontWeight: fontWeight.bold
+  },
+
+  detailValue: {
+    color: colors.textPrimary,
+    fontSize: fontSize.sm,
+    lineHeight: 20
+  },
+
+  sourceButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    paddingVertical: spacing.md,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.primary,
+    marginTop: spacing.xl,
+  },
+
+  sourceButtonText: {
+    color: colors.primary,
+    fontSize: fontSize.sm,
+    fontWeight: fontWeight.bold,
+  },
+
+  closeButton: {
+    backgroundColor: colors.primary,
+    borderRadius: radius.lg,
+    alignItems: 'center',
+    paddingVertical: spacing.md,
+    marginTop: spacing.md,
+  },
+
+  closeButtonText: {
+    color: colors.white,
+    fontSize: fontSize.md,
+    fontWeight: fontWeight.bold,
+  }
+})

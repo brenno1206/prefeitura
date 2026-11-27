@@ -14,7 +14,7 @@ const SERVICES = {
   events: {
     id: 'events',
     label: 'Eventos',
-    description: 'Agenda oficial da prefeitura',
+    description: 'Eventos culturais de Vila Velha',
     icon: { family: 'MaterialIcons', name: 'event' },
     color: '#2945c2',
     background: '#d6deff',
