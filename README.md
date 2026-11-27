@@ -34,5 +34,8 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 ## Próximos passos
 
+- Expo Snack
+    - está correto no site, mas precisa consertar no repositório
+
 - Eventos
     - add categorias de Esporte Saúde, Meio Ambiente, Educação, ... 
