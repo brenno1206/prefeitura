@@ -3,7 +3,7 @@ import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import ScreenContainer from '../components/layout/ScreenContainer';
 import ScreenHeader from '../components/layout/ScreenHeader';
 import Icon from '../components/ui/Icon';
-import Mapa from '../components/map/Mapa';
+import Mapa from '../components/map/map';
 import { useUserLocation } from '../components/map/useUserLocation';
 import { locais } from '../data/locais';
 import { colors, fontSize, fontWeight, radius, spacing } from '../theme';
@@ -23,7 +23,7 @@ export default function MapScreen({ navigation }) {
       header={<ScreenHeader title="Mapa" subtitle="Prefeitura, Fórum e Câmara" onBack={navigation.goBack} />}
     >
       <View style={styles.mapa}>
-        <Mapa locais={locais} selecionado={selecionado} usuario={usuario} dom={{ style: { flex: 1 } }} />
+        <Mapa locais={locais} selecionado={selecionado} usuario={usuario} />
       </View>
 
       <View style={styles.lista}>

@@ -64,7 +64,42 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: spacing.md
     },
+
     iconBox: {
-        
+        width: 48,
+        height: 48,
+        borderRadius: radius.lg,
+        backgroundColor: colors.primaryLight,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    info: {
+        flex: 1,
+        gap: spacing.xs
+    },
+
+    category: {
+        fontSize: fontSize.xss,
+        color: colors.primary,
+        fontWeight: fontWeight.bold
+    },
+
+    title: {
+        fontSize: fontSize.md,
+        color: colors.textPrimary,
+        fontWeight: fontWeight.bold
+    },
+
+    detail: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: spacing.xs
+    },
+
+    detailText: {
+        flex: 1,
+        fontSize: fontSize.xs,
+        color: colors.textMuted
     }
 })
